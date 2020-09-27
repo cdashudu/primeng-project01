@@ -1,1 +1,33 @@
-<app-login></app-login>
+<!-- <div fxLayout="row">
+    <div class="sidebar" fxFlex=30 fxLayout="row">
+        <p-sidebar fxLayout="column" fxLayoutGap="24px" fxLayoutAlign="center center" [(visible)]="visibleSidebar1" [showCloseIcon]="false" [closeOnEscape]='false' [dismissible]='false' styleClass="overlaya" >
+            <div fxLayout="row">
+                <mat-icon>info</mat-icon>
+                <label>Alerts Reopen Requests</label>
+            </div>
+            <div fxLayout="row">
+                <mat-icon>info</mat-icon>
+                <label>Alerts Reopen Requests</label>
+            </div>
+            <div fxLayout="row">
+                <mat-icon>info</mat-icon>
+                <label>Alerts Reopen Requests</label>
+            </div>
+            <div fxLayout="row">
+                <mat-icon>info</mat-icon>
+                <label>Alerts Reopen Requests</label>
+            </div>
+        </p-sidebar>
+    </div>
+    <div fxFlex=70>
+        <router-outlet></router-outlet>
+    </div>
+</div> -->
+<mat-sidenav-container class="progress-sidenav-container" fullscreen>
+    <mat-sidenav #sidenav mode="side" opened class="progress-sidenav" fixedInViewport="true">   
+        
+    </mat-sidenav>    
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

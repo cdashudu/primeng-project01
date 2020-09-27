@@ -1,0 +1,7 @@
+:host ::ng-deep .overlaya.p-sidebar {
+  .p-sidebar-mask {
+    .p-component-overlay {
+      background: rgba(0, 0, 0, 0);
+    }
+  }
+}

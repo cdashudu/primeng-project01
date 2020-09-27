@@ -11,7 +11,8 @@ import { MemberConsoleComponent } from './components/member-console/member-conso
 import { ExchangeConsoleComponent } from './components/exchange-console/exchange-console.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule }    from '@angular/forms';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatIconModule} from '@angular/material/icon';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {CheckboxModule} from 'primeng/checkbox';
@@ -20,6 +21,11 @@ import {DropdownModule} from 'primeng/dropdown';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {TabViewModule} from 'primeng/tabview';
 import {CardModule} from 'primeng/card';
+import {SidebarModule} from 'primeng/sidebar';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {CdkScrollable} from '@angular/cdk/scrolling';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -31,11 +37,14 @@ import {CardModule} from 'primeng/card';
     ExchangeConsoleComponent
   ],
   imports: [
+    MatSidenavModule,
+    MatIconModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     CommonModule,
     FormsModule,
+    FlexLayoutModule,
     InputTextModule,
 		CheckboxModule,
 		ButtonModule,
@@ -43,8 +52,10 @@ import {CardModule} from 'primeng/card';
     InputTextareaModule,
     DropdownModule,
     TabViewModule,
-    CardModule
+    CardModule,
+    SidebarModule
   ],
+  exports:[ScrollingModule],
   providers: [],
   bootstrap: [AppComponent]
 })
