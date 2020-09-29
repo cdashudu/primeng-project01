@@ -1,7 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
-
+//app related
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confirm-dialog.component';
@@ -9,23 +6,24 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
 import { LoginComponent } from './components/login/login.component';
 import { MemberConsoleComponent } from './components/member-console/member-console.component';
 import { ExchangeConsoleComponent } from './components/exchange-console/exchange-console.component';
-import { CommonModule } from '@angular/common';
-import { FormsModule }    from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import {MatIconModule} from '@angular/material/icon';
-import {InputTextModule} from 'primeng/inputtext';
-import {ButtonModule} from 'primeng/button';
-import {CheckboxModule} from 'primeng/checkbox';
-import {RadioButtonModule} from 'primeng/radiobutton';
-import {DropdownModule} from 'primeng/dropdown';
-import {InputTextareaModule} from 'primeng/inputtextarea';
-import {TabViewModule} from 'primeng/tabview';
-import {CardModule} from 'primeng/card';
-import {SidebarModule} from 'primeng/sidebar';
+import { LeftMenuComponent } from './components/left-menu/left-menu.component';
 
-import { MatSidenavModule } from '@angular/material/sidenav';
-import {CdkScrollable} from '@angular/cdk/scrolling';
-import {ScrollingModule} from '@angular/cdk/scrolling';
+// angular default
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Prime NG
+import { MessageService } from 'primeng/api';
+import { UserIdleModule } from 'angular-user-idle';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AppCommonModule } from 'src/app/app.common.module';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -34,28 +32,25 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     LoaderComponent,
     LoginComponent,
     MemberConsoleComponent,
-    ExchangeConsoleComponent
+    ExchangeConsoleComponent,
+    LeftMenuComponent
   ],
   imports: [
-    MatSidenavModule,
-    MatIconModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    CommonModule,
-    FormsModule,
-    FlexLayoutModule,
-    InputTextModule,
-		CheckboxModule,
-		ButtonModule,
-		RadioButtonModule,
-    InputTextareaModule,
-    DropdownModule,
-    TabViewModule,
-    CardModule,
-    SidebarModule
+    UserIdleModule.forRoot({ idle: 300, timeout: 1, ping: null }),
+    HttpClientModule,
+    AppCommonModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
-  exports:[ScrollingModule],
+  exports: [TranslateModule],
   providers: [],
   bootstrap: [AppComponent]
 })
