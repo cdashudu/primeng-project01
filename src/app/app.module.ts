@@ -20,6 +20,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppCommonModule } from 'src/app/app.common.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { FooterComponent } from './shared/layout/footer/footer.component';
+import { LayoutComponent } from './shared/layout/layout.component';
+import { HeaderComponent } from './shared/layout/header/header.component';
+import { HeaderBreadcrumbComponent } from './shared/layout/header-breadcrumb/header-breadcrumb.component';
+import { MenuComponent } from './shared/layout/menu/menu.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -33,7 +38,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     MemberConsoleComponent,
     ExchangeConsoleComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
+    FooterComponent,
+    LayoutComponent,
+    HeaderComponent,
+    HeaderBreadcrumbComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
