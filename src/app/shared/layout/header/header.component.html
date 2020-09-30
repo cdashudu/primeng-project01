@@ -1,1 +1,25 @@
-<p>header works!</p>
+<div class="ng-header">
+    <div class="ng-header-left left">
+        <div class="toggle-menu-button left">
+            <a class="icon" (click)="toggleMenu()"><i class="fa fa-bars"></i></a>
+        </div>
+        <div class="logo right">
+            <img src="assets/images/mcx.svg" class="logo-large">
+        </div>
+    </div>
+    <div class="ng-header-right right">
+        <div class="ng-header-right-item right">
+            <a class="icon" (click)="logout()"><i class="fa fa-sign-out-alt"></i></a>
+        </div>
+        <div class="ng-header-right-item right" (click)="userdetails.toggle($event)">
+            <a class="icon"><span innerHtml="varsha@mcx.com" class="user-name"></span><i class="fa fa-user"></i></a>
+        </div>
+    </div>
+</div>
+
+<!-- user detials overlay panel -->
+<p-overlayPanel #userdetails>
+    <div><b>User Name: </b><i innerHtml="varsha"></i></div>
+    <div><b>Email Id: </b><i innerHtml="varsha@mcx.com"></i></div>
+    <div><b>Birthdate: </b><i innerHtml="10/28/1992 | date:'dd/MM/yyyy'"></i></div>
+</p-overlayPanel>

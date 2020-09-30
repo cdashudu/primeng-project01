@@ -112,12 +112,9 @@ html, body {
   padding-left: 240px;
 }
 
-.hidden-menu-content {
-  padding-left: 10px;
-}
 
-.hidden-menu-content-icons {
-  
+.hidden-menu-content {
+  padding-left: 50px;
 }
 
 .ng-content .ui-card {
